@@ -1,5 +1,8 @@
 package Package;
+import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Clinica {
 	private String nombreClinica;
 	private String direccionesAsociadas;
@@ -43,6 +46,7 @@ public class Clinica {
 		for(Trabajador trabajador : this.trabajadores){
 			if(trabajador.getTipo().equals("Medico")){
 				medicos.add((Medico) trabajador);
+				System.out.println(medicos);
 			}
 		}
 		return medicos;
@@ -52,8 +56,45 @@ public class Clinica {
 		for(Trabajador trabajador : this.trabajadores){
 			if(trabajador.getTipo().equals("Administrativo")){
 				administrativos.add((Administrativo) trabajador);
+				System.out.println(administrativos);
 			}
 		}
 		return administrativos;
 	}
+	public ArrayList<Medico> obtenerMedicosPorEspecialidad(String nombreEspecialidad){
+		ArrayList<Medico> medicos = new ArrayList<Medico>();
+		for(Especialidad especialidad : this.especialidades){
+			if(especialidad.getNombreEspecialidad().equals(nombreEspecialidad)){
+				for(Trabajador trabajador : this.trabajadores){
+					if(trabajador.getTipo().equals("Medico")){
+						medicos.add((Medico) trabajador);
+					}
+				}
+			}
+		}
+		return medicos;
+	}
+	public ArrayList<Administrativo> obtenerAdminiPorEspecialidad(String nombreBuscado){
+		ArrayList<Administrativo> administrativos = new ArrayList<Administrativo>();
+		for(Especialidad especialidad : this.especialidades){
+			if(especialidad.getNombreEspecialidad().equals(nombreBuscado)){
+				for(Trabajador trabajador : this.trabajadores){
+					if(trabajador.getTipo().equals("Administrativo")){
+						administrativos.add((Administrativo) trabajador);
+					}
+				}
+			}
+		}
+		return administrativos;
+	}
+	public ArrayList<Administrativo> obtenerAdminPorRut(String rutBuscado){
+		ArrayList<Administrativo> administrativos = new ArrayList<Administrativo>();
+		for(Trabajador trabajador : this.trabajadores){
+			if(trabajador.getRut().equals(rutBuscado)){
+				administrativos.add((Administrativo) trabajador);
+			}
+		}
+		return administrativos;
+	}
+
 }
