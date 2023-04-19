@@ -48,4 +48,7 @@ public class Medico extends Trabajador {
 	public String getTipo() {
 		return "Medico";
 	}
+	public String toString() {
+		return this.getNombre() + ", " + this.getTipo();
+	}
 }

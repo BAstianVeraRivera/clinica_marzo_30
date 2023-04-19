@@ -5,6 +5,12 @@ public class Especialidad {
 	private String ubicacion;
 	private ArrayList<Administrativo> administrativos = new ArrayList<Administrativo>();
 	private ArrayList<Medico> medicos = new ArrayList<Medico>();
+	public ArrayList<Medico> getMedicos() {
+		return medicos;
+	}
+	public ArrayList<Administrativo> getAdministrativos() {
+		return administrativos;
+	}
 
 	public String getNombreEspecialidad() {
 		return this.nombreEspecialidad;

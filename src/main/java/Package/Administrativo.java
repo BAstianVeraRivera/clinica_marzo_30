@@ -18,4 +18,7 @@ public class Administrativo extends Trabajador {
 	public String getTipo() {
 		return "Administrativo";
 	}
+	public String toString() {
+		return this.getNombre() + ", " + this.getTipo();
+	}
 }
